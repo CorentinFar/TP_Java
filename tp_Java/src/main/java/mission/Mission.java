@@ -76,13 +76,21 @@ public class Mission {
 	}
 	
 	//A faire
-	public void ajouterOperateur() {
-		
+	public void ajouterOperateur(Operateur operator) {
+		if(op.contains(operator){
+			return;
+		}
+		else { op.add(operator);}
 	}
-	public void ajouterEngin() {
-		
+	public void ajouterEngin(Engin engine) {
+		if(!this.machine.contains(engine)) {
+			this.machine.add(engine);
+		}
 	}
-	public void ajouterZoneObjectif() {
+	public void ajouterZoneObjectif(Zone objectif) {
+		if(!this.goal.contains(objectif)) {
+			goal.add(objectif);
+		}
 	
 }
 	public void verifierDemarrage() {
@@ -91,9 +99,18 @@ public class Mission {
 	public void demarrer() {
 		
 	}
-	public Set<Personne> getPersonne(){
-		return new HashSet<Personne>();
+	public Set<Personne> getParticipants(){
+		HashSet<Personne> participants = new HashSet<Personne>();
+		participants.add(Dirlo);
+		participants.addAll(op);
+		for(Operateur ope : op) {
+			participants.addAll(ope.getCadets());
+		}
+		return participants;
 	}
+	
+	
+	
 	public RapportMission Terminer() {
 		
 	}
